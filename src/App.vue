@@ -1,10 +1,22 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+   <header-boot></header-boot>
   </nav>
   <router-view/>
 </template>
+
+<script>
+import headerBoot from './components/headerBoot.vue';
+
+export default {
+
+  name:'app',
+  components:{
+    headerBoot,
+  }
+}
+
+</script>
 
 <style>
 #app {
@@ -13,6 +25,8 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: rgb(36, 4, 79);
+
 }
 
 nav {

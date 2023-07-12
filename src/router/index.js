@@ -1,11 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import notFound from '../components/notfound.vue'
+import opinionesView from '../views/opinionesView.vue'
+import administracion from '../components/administracion.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/opiniones/:nombre',
+    name: 'opiniones',
+    component: opinionesView,
+    props: true,
+  },
+  {
+    path: '/admin/:nombre',
+    name: 'admin',
+    component: administracion,
+    props: true,
   },
   {
     path: '/about',
@@ -16,7 +31,13 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
     }
-  }
+  },
+
+  {
+    path: '/:catchAll(.*)',
+    name: 'notfound',
+    component: notFound,
+  },
 ]
 
 const router = createRouter({
